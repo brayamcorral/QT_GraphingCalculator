@@ -14,7 +14,7 @@ MainWindow::MainWindow(QWidget *parent)
     ui->setupUi(this);
 
     // Graph
-    MainWindow::makePlot("3x+5x^3", 10);
+    MainWindow::makePlot("3x+5x^3", 10);//comment
 
     connect(ui-> pushButton_0, SIGNAL(released()), this, SLOT(digit_pressed()));
     connect(ui-> pushButton_1, SIGNAL(released()), this, SLOT(digit_pressed()));
