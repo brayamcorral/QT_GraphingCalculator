@@ -239,3 +239,26 @@ void MainWindow::binary_operation_pressed()
     firstNum =  ui -> pushButton_label-> text().toDouble();
     button -> setChecked(true);
 }
+
+void MainWindow::on_pushButton_Shift_clicked()
+{
+    ui -> stackedWidget-> setCurrentIndex(1);
+}
+
+//void MainWindow::on_pushButton_clear_2_clicked()//clear button on 2nd page
+//{
+//    ui -> pushButton_add-> setChecked(false);
+//    ui -> pushButton_subtract-> setChecked(false);
+//    ui -> pushButton_multiply-> setChecked(false);
+//    ui -> pushButton_divide-> setChecked(false);
+
+//    userIsTypingSecondNUmber = false;
+//    //ui -> pushButton_label_2-> setText("y= 0"); //integrate the two new fields
+//}
+
+
+
+void MainWindow::on_pushButton_Shift_2_clicked()
+{
+    ui -> stackedWidget-> setCurrentIndex(0);
+}

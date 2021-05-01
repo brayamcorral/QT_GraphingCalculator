@@ -31,6 +31,10 @@ private slots:
 
     // Graph
     void makePlot(std::string equationString, int size = 10);
+
+    //page 2 buttons
+    void on_pushButton_Shift_clicked();
+    void on_pushButton_Shift_2_clicked();
 };
 
 
