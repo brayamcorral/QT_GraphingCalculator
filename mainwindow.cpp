@@ -210,8 +210,6 @@ void MainWindow::on_pushButton_clear_released()
     userIsTypingSecondNUmber = false;
     ui -> pushButton_label-> setText("0");
 
-    MainWindow::makePlot("", 10);
-
 }
 
 void MainWindow::on_pushButton_equals_released()
