@@ -31,6 +31,9 @@ private slots:
 
     // Graph
     void makePlot(std::string equationString, int size = 10);
+
+    void on_pushButton_clear_2_released(); //functions for graphing
+    void graph_digit_pressed();
 };
 
 

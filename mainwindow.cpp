@@ -193,7 +193,7 @@ void MainWindow::on_pushButton_clear_released()
     userIsTypingSecondNUmber = false;
     ui -> pushButton_label-> setText("0");
 
-
+    MainWindow::makePlot("", 10);
 
 }
 
@@ -239,3 +239,25 @@ void MainWindow::binary_operation_pressed()
     firstNum =  ui -> pushButton_label-> text().toDouble();
     button -> setChecked(true);
 }
+
+void MainWindow::on_pushButton_clear_2_released(){
+    userIsTypingSecondNUmber = false;
+    MainWindow::makePlot("", 10);
+    ui -> pushButton_label_2-> setText("0");
+}
+
+void MainWindow::graph_digit_pressed(){
+    QPushButton *button = (QPushButton*)sender();
+
+    QString newLabel;
+
+    if(ui->pushButton_label_2->text() == "0"){
+        newLabel = button-> text();
+    }
+    else{
+        newLabel = (ui -> pushButton_label_2 -> text() + button-> text());
+    }
+
+    ui -> pushButton_label_2 ->setText(newLabel);
+}
+
