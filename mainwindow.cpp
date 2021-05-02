@@ -27,6 +27,23 @@ MainWindow::MainWindow(QWidget *parent)
     connect(ui-> pushButton_8, SIGNAL(released()), this, SLOT(digit_pressed()));
     connect(ui-> pushButton_9, SIGNAL(released()), this, SLOT(digit_pressed()));
 
+    connect(ui-> pushButton_00, SIGNAL(released()), this, SLOT(graph_digit_pressed()));
+    connect(ui-> pushButton_01, SIGNAL(released()), this, SLOT(graph_digit_pressed()));
+    connect(ui-> pushButton_02, SIGNAL(released()), this, SLOT(graph_digit_pressed()));
+    connect(ui-> pushButton_03, SIGNAL(released()), this, SLOT(graph_digit_pressed()));
+    connect(ui-> pushButton_04, SIGNAL(released()), this, SLOT(graph_digit_pressed()));
+    connect(ui-> pushButton_05, SIGNAL(released()), this, SLOT(graph_digit_pressed()));
+    connect(ui-> pushButton_06, SIGNAL(released()), this, SLOT(graph_digit_pressed()));
+    connect(ui-> pushButton_07, SIGNAL(released()), this, SLOT(graph_digit_pressed()));
+    connect(ui-> pushButton_08, SIGNAL(released()), this, SLOT(graph_digit_pressed()));
+    connect(ui-> pushButton_09, SIGNAL(released()), this, SLOT(graph_digit_pressed()));
+    connect(ui-> pushButton_Add_2, SIGNAL(released()), this, SLOT(graph_digit_pressed()));
+    connect(ui-> pushButton_Subtract_2, SIGNAL(released()), this, SLOT(graph_digit_pressed()));
+    connect(ui-> pushButton_equals_2, SIGNAL(released()), this, SLOT(graph_digit_pressed()));
+    connect(ui-> pushButton_Square_2, SIGNAL(released()), this, SLOT(graph_digit_pressed()));
+    connect(ui-> pushButton_X, SIGNAL(released()), this, SLOT(graph_digit_pressed()));
+    connect(ui-> pushButton_Y, SIGNAL(released()), this, SLOT(graph_digit_pressed()));
+
     connect(ui-> pushButton_plusMinus, SIGNAL(released()), this, SLOT(unary_operation_pressed()));
     connect(ui-> pushButton_percent, SIGNAL(released()), this, SLOT(unary_operation_pressed()));
 
