@@ -14,7 +14,7 @@ MainWindow::MainWindow(QWidget *parent)
     ui->setupUi(this);
 
     // Graph
-    MainWindow::makePlot("3x+5x^3", 10);
+    MainWindow::makePlot("x^2", 10);
 
     connect(ui-> pushButton_0, SIGNAL(released()), this, SLOT(digit_pressed()));
     connect(ui-> pushButton_1, SIGNAL(released()), this, SLOT(digit_pressed()));
@@ -240,7 +240,7 @@ void MainWindow::binary_operation_pressed()
     button -> setChecked(true);
 }
 
-void MainWindow::on_pushButton_Shift_clicked()
+void MainWindow::on_pushButton_Shift_clicked() //first page
 {
     ui -> stackedWidget-> setCurrentIndex(1);
 }
@@ -258,7 +258,7 @@ void MainWindow::on_pushButton_Shift_clicked()
 
 
 
-void MainWindow::on_pushButton_Shift_2_clicked()
+void MainWindow::on_pushButton_Shift_2_clicked() //second page
 {
     ui -> stackedWidget-> setCurrentIndex(0);
 }
