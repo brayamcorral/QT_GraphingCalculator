@@ -276,3 +276,8 @@ void MainWindow::graph_digit_pressed(){
     ui -> pushButton_label_2 ->setText(newLabel);
 }
 
+void MainWindow::on_pushButton_graph_released(){
+    std::string equation = ui->pushButton_label_2->text().toLocal8Bit().constData();
+    MainWindow::makePlot(equation, 10);
+}
+
