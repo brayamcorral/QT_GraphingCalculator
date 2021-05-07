@@ -14,7 +14,9 @@ MainWindow::MainWindow(QWidget *parent)
     ui->setupUi(this);
 
     // Graph
-    MainWindow::makePlot("x^2", 10);
+
+    MainWindow::makePlot("3x+5x^3", 10);//comment again
+
 
     connect(ui-> pushButton_0, SIGNAL(released()), this, SLOT(digit_pressed()));
     connect(ui-> pushButton_1, SIGNAL(released()), this, SLOT(digit_pressed()));
@@ -26,6 +28,23 @@ MainWindow::MainWindow(QWidget *parent)
     connect(ui-> pushButton_7, SIGNAL(released()), this, SLOT(digit_pressed()));
     connect(ui-> pushButton_8, SIGNAL(released()), this, SLOT(digit_pressed()));
     connect(ui-> pushButton_9, SIGNAL(released()), this, SLOT(digit_pressed()));
+
+    connect(ui-> pushButton_00, SIGNAL(released()), this, SLOT(graph_digit_pressed()));
+    connect(ui-> pushButton_01, SIGNAL(released()), this, SLOT(graph_digit_pressed()));
+    connect(ui-> pushButton_02, SIGNAL(released()), this, SLOT(graph_digit_pressed()));
+    connect(ui-> pushButton_03, SIGNAL(released()), this, SLOT(graph_digit_pressed()));
+    connect(ui-> pushButton_04, SIGNAL(released()), this, SLOT(graph_digit_pressed()));
+    connect(ui-> pushButton_05, SIGNAL(released()), this, SLOT(graph_digit_pressed()));
+    connect(ui-> pushButton_06, SIGNAL(released()), this, SLOT(graph_digit_pressed()));
+    connect(ui-> pushButton_07, SIGNAL(released()), this, SLOT(graph_digit_pressed()));
+    connect(ui-> pushButton_08, SIGNAL(released()), this, SLOT(graph_digit_pressed()));
+    connect(ui-> pushButton_09, SIGNAL(released()), this, SLOT(graph_digit_pressed()));
+    connect(ui-> pushButton_Add_2, SIGNAL(released()), this, SLOT(graph_digit_pressed()));
+    connect(ui-> pushButton_Subtract_2, SIGNAL(released()), this, SLOT(graph_digit_pressed()));
+    connect(ui-> pushButton_equals_2, SIGNAL(released()), this, SLOT(graph_digit_pressed()));
+    connect(ui-> pushButton_Square_2, SIGNAL(released()), this, SLOT(graph_digit_pressed()));
+    connect(ui-> pushButton_X, SIGNAL(released()), this, SLOT(graph_digit_pressed()));
+    connect(ui-> pushButton_Y, SIGNAL(released()), this, SLOT(graph_digit_pressed()));
 
     connect(ui-> pushButton_plusMinus, SIGNAL(released()), this, SLOT(unary_operation_pressed()));
     connect(ui-> pushButton_percent, SIGNAL(released()), this, SLOT(unary_operation_pressed()));
@@ -193,8 +212,6 @@ void MainWindow::on_pushButton_clear_released()
     userIsTypingSecondNUmber = false;
     ui -> pushButton_label-> setText("0");
 
-
-
 }
 
 void MainWindow::on_pushButton_equals_released()
@@ -240,25 +257,41 @@ void MainWindow::binary_operation_pressed()
     button -> setChecked(true);
 }
 
+
 void MainWindow::on_pushButton_Shift_clicked() //first page
 {
     ui -> stackedWidget-> setCurrentIndex(1);
 }
 
-//void MainWindow::on_pushButton_clear_2_clicked()//clear button on 2nd page
-//{
-//    ui -> pushButton_add-> setChecked(false);
-//    ui -> pushButton_subtract-> setChecked(false);
-//    ui -> pushButton_multiply-> setChecked(false);
-//    ui -> pushButton_divide-> setChecked(false);
-
-//    userIsTypingSecondNUmber = false;
-//    //ui -> pushButton_label_2-> setText("y= 0"); //integrate the two new fields
-//}
-
-
-
 void MainWindow::on_pushButton_Shift_2_clicked() //second page
 {
     ui -> stackedWidget-> setCurrentIndex(0);
 }
+
+void MainWindow::on_pushButton_clear_2_released(){
+    userIsTypingSecondNUmber = false;
+    MainWindow::makePlot("", 10);
+    ui -> pushButton_label_2-> setText("0");
+}
+
+void MainWindow::graph_digit_pressed(){
+    QPushButton *button = (QPushButton*)sender();
+
+    QString newLabel;
+
+    if(ui->pushButton_label_2->text() == "0"){
+        newLabel = button-> text();
+    }
+    else{
+        newLabel = (ui -> pushButton_label_2 -> text() + button-> text());
+    }
+
+    ui -> pushButton_label_2 ->setText(newLabel);
+}
+
+void MainWindow::on_pushButton_graph_released(){
+    std::string equation = ui->pushButton_label_2->text().toLocal8Bit().constData();
+    MainWindow::makePlot(equation, 10);
+}
+
+
