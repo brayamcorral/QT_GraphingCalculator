@@ -14,7 +14,9 @@ MainWindow::MainWindow(QWidget *parent)
     ui->setupUi(this);
 
     // Graph
+
     MainWindow::makePlot("3x+5x^3", 10);//comment again
+
 
     connect(ui-> pushButton_0, SIGNAL(released()), this, SLOT(digit_pressed()));
     connect(ui-> pushButton_1, SIGNAL(released()), this, SLOT(digit_pressed()));
@@ -255,6 +257,17 @@ void MainWindow::binary_operation_pressed()
     button -> setChecked(true);
 }
 
+
+void MainWindow::on_pushButton_Shift_clicked() //first page
+{
+    ui -> stackedWidget-> setCurrentIndex(1);
+}
+
+void MainWindow::on_pushButton_Shift_2_clicked() //second page
+{
+    ui -> stackedWidget-> setCurrentIndex(0);
+}
+
 void MainWindow::on_pushButton_clear_2_released(){
     userIsTypingSecondNUmber = false;
     MainWindow::makePlot("", 10);
@@ -280,4 +293,5 @@ void MainWindow::on_pushButton_graph_released(){
     std::string equation = ui->pushButton_label_2->text().toLocal8Bit().constData();
     MainWindow::makePlot(equation, 10);
 }
+
 
