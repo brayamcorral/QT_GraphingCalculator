@@ -15,7 +15,7 @@ MainWindow::MainWindow(QWidget *parent)
 
     // Graph
 
-    MainWindow::makePlot("3x+5x^3", 10);//comment again
+    MainWindow::makePlot("-5x^5^3+5x-5", 20);
 
 
     connect(ui-> pushButton_0, SIGNAL(released()), this, SLOT(digit_pressed()));
@@ -74,7 +74,9 @@ void MainWindow::makePlot(std::string equationString, int size)
 
     // Copy string into char array
     char equationChar[equationString.length() + 1];
+    char equationCharSigns[equationString.length() + 1];
     strcpy(equationChar, equationString.c_str());
+    strcpy(equationCharSigns, equationString.c_str());
 
     // Break up equation into a vector of terms
     char *token = strtok(equationChar, "+-");
@@ -85,14 +87,23 @@ void MainWindow::makePlot(std::string equationString, int size)
     }
 
     // Find signs of each term
-    for(char c : equationChar)
+    for(char c : equationCharSigns)
     {
+        qInfo() << c;
         if(c == '+')
             signs.push_back(true);
         else if(c == '-')
             signs.push_back(false);
     }
-    if(signs.size() < terms.size()) signs.push_front(true);
+    if(signs.size() < terms.size())
+        signs.push_front(true);
+
+    qInfo() << "num signs:" << signs.size();
+    for(bool b : signs)
+    {
+         qInfo() << b;
+    }
+
 
     // Add each term to graph
     for(unsigned long i = 0; i < terms.size(); ++i)
@@ -108,27 +119,38 @@ void MainWindow::makePlot(std::string equationString, int size)
         else qInfo() << "+" << terms[i];
 
         // Get coefficient
+        bool constant = true;
         for(int a = 0; a < term.size(); a++)
         {
-            if(!isdigit(term[a]))
+            if(!isdigit(term[a]))\
+            {
+                constant = false;
                 break;
+            }
             else
                 coefficientString += term[a];
         }
         coefficient = coefficientString.empty() ? 1 * sign : std::stoi(coefficientString) * sign;
         qInfo() << "c:" << QString::fromStdString(coefficientString) << coefficient;
 
-        // Get exponent
-        for(int a = 0; a < term.size(); a++)
+        // Get exponent if term is not a constant
+        if(!constant)
         {
-            if(carrotFound)
-                exponentString += term[a];
-            else if(!carrotFound && term[a] == '^')
-                carrotFound = true;
+            for(int a = 0; a < term.size(); a++)
+            {
+                if(carrotFound)
+                    exponentString += term[a];
+                else if(!carrotFound && term[a] == '^')
+                    carrotFound = true;
+            }
+            exponent = exponentString.empty() ? (carrotFound ? 0 : 1) : std::stoi(exponentString);
+        }
+        else
+        {
+            exponent = 0;
         }
 
-        exponent = exponentString.empty() ? (carrotFound ? 1 : 0) : std::stoi(exponentString);
-        qInfo() << "e:" << QString::fromStdString(exponentString) << exponent;
+        qInfo() << "e:" << QString::fromStdString(exponentString) << exponent << "carrrot Found: " << carrotFound;
 
         // Add values to graph
         for (int a=0; a<(size * 100)+1; ++a)
