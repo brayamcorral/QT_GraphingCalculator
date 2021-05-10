@@ -63,6 +63,7 @@ MainWindow::MainWindow(QWidget *parent)
     ui-> pushButton_subtract->setCheckable(true);
     ui-> pushButton_multiply->setCheckable(true);
     ui-> pushButton_divide->setCheckable(true);
+    ui-> pushButton_AbsoluteValue->setCheckable(true);
 
 }
 
@@ -226,10 +227,7 @@ void MainWindow::unary_operation_pressed(){
         ui -> pushButton_label -> setText(newLabel);
     }
     else if(button -> text() == "|a|"){
-        labelNum = ui -> pushButton_label -> text().toDouble();
-        labelNum = abs(labelNum);
-        newLabel = QString::number(labelNum, 'g', 15);
-        ui -> pushButton_label -> setText(newLabel);
+        ui -> pushButton_AbsoluteValue -> setChecked(true);
     }
     else if(button -> text() == "^"){
         labelNum = ui -> pushButton_label -> text().toDouble();
@@ -296,6 +294,14 @@ void MainWindow::on_pushButton_equals_released()
         newLabel = QString::number(labelNum, 'g', 15);
         ui -> pushButton_label -> setText(newLabel);
         ui -> pushButton_divide -> setChecked(false);
+    }
+
+    if(ui-> pushButton_AbsoluteValue -> isChecked()){
+        labelNum = ui -> pushButton_label -> text().toDouble();
+        labelNum = abs(labelNum);
+        newLabel = QString::number(labelNum, 'g', 15);
+        ui -> pushButton_label -> setText(newLabel);
+        ui -> pushButton_AbsoluteValue -> setChecked(false);
     }
 
     userIsTypingSecondNUmber =  false;
