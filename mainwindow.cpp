@@ -47,6 +47,11 @@ MainWindow::MainWindow(QWidget *parent)
     connect(ui-> pushButton_plusMinus, SIGNAL(released()), this, SLOT(unary_operation_pressed()));
     connect(ui-> pushButton_percent, SIGNAL(released()), this, SLOT(unary_operation_pressed()));
 
+    connect(ui-> pushButton_AbsoluteValue, SIGNAL(released()), this, SLOT(unary_operation_pressed()));
+    connect(ui-> pushButton_sqrt, SIGNAL(released()), this, SLOT(unary_operation_pressed()));
+    connect(ui-> pushButton_Square, SIGNAL(released()), this, SLOT(unary_operation_pressed()));
+    connect(ui-> pushButton_NaturalLog, SIGNAL(released()), this, SLOT(unary_operation_pressed()));
+
     connect(ui-> pushButton_add, SIGNAL(released()), this, SLOT(binary_operation_pressed()));
     connect(ui-> pushButton_subtract, SIGNAL(released()), this, SLOT(binary_operation_pressed()));
     connect(ui-> pushButton_multiply, SIGNAL(released()), this, SLOT(binary_operation_pressed()));
@@ -190,13 +195,36 @@ void MainWindow::unary_operation_pressed(){
         newLabel = QString::number(labelNum, 'g', 15);
         ui -> pushButton_label -> setText(newLabel);
     }
-    if(button -> text() == "%"){
+    else if(button -> text() == "%"){
         labelNum = ui -> pushButton_label -> text().toDouble();
         labelNum *= 0.01;
         newLabel = QString::number(labelNum, 'g', 15);
         ui -> pushButton_label -> setText(newLabel);
     }
-
+    else if(button -> text() == "|a|"){
+        labelNum = ui -> pushButton_label -> text().toDouble();
+        labelNum = abs(labelNum);
+        newLabel = QString::number(labelNum, 'g', 15);
+        ui -> pushButton_label -> setText(newLabel);
+    }
+    else if(button -> text() == "^"){
+        labelNum = ui -> pushButton_label -> text().toDouble();
+        labelNum *= labelNum;
+        newLabel = QString::number(labelNum, 'g', 15);
+        ui -> pushButton_label -> setText(newLabel);
+    }
+    else if(button -> text() == "√"){
+        labelNum = ui -> pushButton_label -> text().toDouble();
+        labelNum = sqrt(labelNum);
+        newLabel = QString::number(labelNum, 'g', 15);
+        ui -> pushButton_label -> setText(newLabel);
+    }
+    else if(button -> text() == "ln  log"){
+        labelNum = ui -> pushButton_label -> text().toDouble();
+        labelNum = log(labelNum);
+        newLabel = QString::number(labelNum, 'g', 15);
+        ui -> pushButton_label -> setText(newLabel);
+    }
 }
 
 void MainWindow::on_pushButton_clear_released()
@@ -206,6 +234,7 @@ void MainWindow::on_pushButton_clear_released()
     ui -> pushButton_subtract-> setChecked(false);
     ui -> pushButton_multiply-> setChecked(false);
     ui -> pushButton_divide-> setChecked(false);
+    ui->pushButton_AbsoluteValue -> setChecked(false);
 
     userIsTypingSecondNUmber = false;
     ui -> pushButton_label-> setText("0");
@@ -279,5 +308,14 @@ void MainWindow::graph_digit_pressed(){
 void MainWindow::on_pushButton_graph_released(){
     std::string equation = ui->pushButton_label_2->text().toLocal8Bit().constData();
     MainWindow::makePlot(equation, 10);
+}
+
+void MainWindow::on_pushButton_Euler_released(){
+
+    ui -> pushButton_label ->setText(QString::number(M_E, 'g', 15));
+}
+
+void MainWindow::on_pushButton_Pi_released(){
+    ui -> pushButton_label ->setText(QString::number(M_PI, 'g', 15));
 }
 
