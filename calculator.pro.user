@@ -5,6 +5,15 @@
  <data>
   <variable>EnvironmentId</variable>
   <value type="QByteArray">{13d3a07c-851a-45cb-a5f7-429e264cf02b}</value>
+
+
+<!-- Written by QtCreator 4.14.1, 2021-05-02T19:27:24. -->
+
+<qtcreator>
+ <data>
+  <variable>EnvironmentId</variable>
+  <value type="QByteArray">{ab36ef8e-571c-4b98-9867-7f721f362156}</value>
+   
  </data>
  <data>
   <variable>ProjectExplorer.Project.ActiveTarget</variable>
