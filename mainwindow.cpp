@@ -7,6 +7,15 @@
 double firstNum;
 bool userIsTypingSecondNUmber= false;
 
+//autofit display
+//void QWidget::showMaximized()
+//{
+//    // ...
+//    setWindowState((windowState() & ~(Qt::WindowMinimized | Qt::WindowFullScreen))
+//                   | Qt::WindowMaximized);
+//    show();
+//}
+
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
