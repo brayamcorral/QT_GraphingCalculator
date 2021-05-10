@@ -340,7 +340,6 @@ void MainWindow::on_pushButton_Mode_2_clicked() //second page
 }
 
 void MainWindow::on_pushButton_clear_2_released(){
-    userIsTypingSecondNUmber = false;
     MainWindow::makePlot("", 10);
     ui -> pushButton_label_2-> setText("0");
 }
