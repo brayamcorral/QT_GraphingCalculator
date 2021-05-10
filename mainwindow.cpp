@@ -190,7 +190,7 @@ void MainWindow::digit_pressed(){
         userIsTypingSecondNUmber=  true;
         newLabel = QString::number(labelNum, 'g',  15);
     }else{
-        if(ui->pushButton_label->text().contains('.'&& button->text() == "0")){
+        if(ui->pushButton_label->text().contains('.') && (button->text() == "0")){
             newLabel = (ui -> pushButton_label -> text() + button-> text());
         }
         else{
