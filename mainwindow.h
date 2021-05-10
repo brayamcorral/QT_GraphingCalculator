@@ -41,6 +41,9 @@ private slots:
     void graph_digit_pressed();
     void on_pushButton_graph_released();
 
+    void on_pushButton_Euler_released();
+    void on_pushButton_Pi_released();
+
 };
 
 
