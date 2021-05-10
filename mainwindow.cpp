@@ -24,7 +24,7 @@ MainWindow::MainWindow(QWidget *parent)
 
     // Graph
 
-    MainWindow::makePlot("-5x^5^3+5x-5", 20);
+    MainWindow::makePlot("2x-1", 20);
 
 
     connect(ui-> pushButton_0, SIGNAL(released()), this, SLOT(digit_pressed()));
@@ -83,6 +83,11 @@ MainWindow::~MainWindow()
 void MainWindow::makePlot(std::string equationString, int size)
 {
     QVector<double> x((size * 100)+1), y((size * 100)+1);
+    for(int  i = 0;i < (size * 100)+1; i++)
+    {
+        x[i] = i/50.0 - size; // x goes from -size to size
+        y[i] = 0;
+    }
     std::vector<char*> terms;
     std::deque<bool> signs;
 
@@ -169,7 +174,7 @@ void MainWindow::makePlot(std::string equationString, int size)
         // Add values to graph
         for (int a=0; a<(size * 100)+1; ++a)
         {
-          x[a] += a/50.0 - size; // x goes from -size to size
+          x[a] = a/50.0 - size; // x goes from -size to size
           y[a] += coefficient * pow(x[a], exponent);
         }
     }
