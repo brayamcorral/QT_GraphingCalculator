@@ -323,12 +323,12 @@ void MainWindow::binary_operation_pressed()
 }
 
 
-void MainWindow::on_pushButton_Shift_clicked() //first page
+void MainWindow::on_pushButton_Mode_clicked() //first page
 {
     ui -> stackedWidget-> setCurrentIndex(1);
 }
 
-void MainWindow::on_pushButton_Shift_2_clicked() //second page
+void MainWindow::on_pushButton_Mode_2_clicked() //second page
 {
     ui -> stackedWidget-> setCurrentIndex(0);
 }

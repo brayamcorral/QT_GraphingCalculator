@@ -34,8 +34,8 @@ private slots:
 
 
     //page 2 buttons
-    void on_pushButton_Shift_clicked();
-    void on_pushButton_Shift_2_clicked();
+    void on_pushButton_Mode_clicked();
+    void on_pushButton_Mode_2_clicked();
 
     void on_pushButton_clear_2_released(); //functions for graphing
     void graph_digit_pressed();

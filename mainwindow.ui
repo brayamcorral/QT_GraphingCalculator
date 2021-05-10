@@ -24,7 +24,7 @@
      </rect>
     </property>
     <property name="currentIndex">
-     <number>0</number>
+     <number>1</number>
     </property>
     <widget class="QWidget" name="page_1">
      <property name="styleSheet">
@@ -653,7 +653,7 @@ QPushButton:pressed {
        <string>%</string>
       </property>
      </widget>
-     <widget class="QPushButton" name="pushButton_Shift">
+     <widget class="QPushButton" name="pushButton_Mode">
       <property name="geometry">
        <rect>
         <x>500</x>
@@ -675,7 +675,7 @@ QPushButton:pressed {
 }</string>
       </property>
       <property name="text">
-       <string>Shift</string>
+       <string>Mode</string>
       </property>
      </widget>
      <widget class="QPushButton" name="pushButton_Square">
@@ -707,7 +707,7 @@ QPushButton:pressed {
      <property name="styleSheet">
       <string notr="true">background-color: #5B5B5B;</string>
      </property>
-     <widget class="QPushButton" name="pushButton_Shift_2">
+     <widget class="QPushButton" name="pushButton_Mode_2">
       <property name="geometry">
        <rect>
         <x>10</x>
@@ -728,7 +728,7 @@ QPushButton:pressed {
 }</string>
       </property>
       <property name="text">
-       <string>Shift</string>
+       <string>Mode</string>
       </property>
      </widget>
      <widget class="QPushButton" name="pushButton_Subtract_2">
