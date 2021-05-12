@@ -81,7 +81,7 @@ limitations under the License.
 ## Contributors
 
 - Brayam Corral Flores - https://github.com/BrayamC
-- Betsy Avila - https://github.com/ericli33
-- Eric Li - https://github.com/betsya97
+- Betsy Avila -  https://github.com/betsya97
+- Eric Li -  https://github.com/ericli33
 
 [Back To The Top](#read-me-template)
