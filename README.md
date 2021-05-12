@@ -50,10 +50,7 @@ Examples of equations: “y = x^2+56”, “y = 4x^3+5x-2”, “y = 4, x^2-5”
 Limitations: all numbers must be a whole number, exponents must be positive.
 ### Screenshots
 ---
-<img src="https://i.imgur.com/nrLbfy4.png" alt="" width="350" height="450">
-![](https://i.imgur.com/pbwoRJ0.png)
-
-
+<img src="https://i.imgur.com/nrLbfy4.png" alt="" width="350" height="450"> <img src="https://i.imgur.com/pbwoRJ0.png" alt="" width="350" height="450"> 
  
 
 [Back To The Top](#read-me-template)
